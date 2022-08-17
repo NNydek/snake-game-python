@@ -1,48 +1,10 @@
-from enum import Enum
 import pygame
+from classes import Color, Dimension
+from functions import get_direction, pass_through_border
 
-class Color(Enum):
-    BLACK = (0, 0, 0)
-    RED = (255, 0, 0)
-    GREEN = (0, 255, 0)
-    BLUE = (0, 0, 255)
-
-def get_direction(event, dir_x, dir_y, pixel):
-    if event.type == pygame.KEYDOWN:
-        match event.key:
-            case pygame.K_LEFT:
-                if dir_x != pixel:
-                    dir_x = -pixel
-                    dir_y = 0
-            case pygame.K_RIGHT:
-                if dir_x != -pixel:
-                    dir_x = pixel
-                    dir_y = 0
-            case pygame.K_UP:
-                if dir_y != pixel:
-                    dir_y = -pixel
-                    dir_x = 0
-            case pygame.K_DOWN:
-                if dir_y != -pixel:
-                    dir_y = pixel
-                    dir_x = 0
-    return dir_x, dir_y
-
-def pass_through_border(x, y, pixel):
-    if x == -pixel:
-        x = width - pixel
-    elif x == width:
-        x = 0
-    
-    if y == -pixel:
-        y = height - pixel
-    elif y == height:
-        y = 0
-    return x, y
-
-width = 800
-height = 600
-pixel = 10
+width = Dimension.WIDTH.value
+height = Dimension.HEIGHT.value
+pixel = Dimension.PIXEL.value
 
 pygame.init()
 pygame.display.set_caption('Snake in Python')
@@ -50,13 +12,13 @@ display = pygame.display.set_mode((width, height))
 clock = pygame.time.Clock()
 
 game_over = False
-game_speed = 30
+game_speed = 30     # Frames per second
 
 current_pos_X = width / 2    # Starting Position
 current_pos_Y = height / 2   # in a middle of a window
 
-direction_X = 0     # -pixel for LEFT, +pixel for RIGHT
-direction_Y = 0     # -pixel for DOWN, +pixel for UP
+direction_X = 0     # -PIXEL for LEFT, +PIXEL for RIGHT
+direction_Y = 0     # -PIXEL for DOWN, +PIXEL for UP
 
 while not game_over:
     for event in pygame.event.get():
