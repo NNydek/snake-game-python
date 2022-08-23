@@ -1,15 +1,16 @@
 import pygame
+import game_window
 from classes import Color, Dimension
 from functions import get_direction, pass_through_border
+
+pygame.init()
 
 width = Dimension.WIDTH.value
 height = Dimension.HEIGHT.value
 pixel = Dimension.PIXEL.value
 
-pygame.init()
-pygame.display.set_caption('Snake in Python')
-display = pygame.display.set_mode((width, height))
-clock = pygame.time.Clock()
+display = game_window.screen
+clock = game_window.timer
 
 game_over = False
 game_speed = 30     # Frames per second
@@ -25,7 +26,7 @@ while not game_over:
         if event.type == pygame.QUIT:
             game_over = True
         direction_X, direction_Y = get_direction(event, direction_X, direction_Y, pixel)
-    
+            
     current_pos_X, current_pos_Y = pass_through_border(current_pos_X, current_pos_Y, pixel)
 
     current_pos_X += direction_X
