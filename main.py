@@ -1,5 +1,6 @@
 import pygame
 import game_window
+import food
 from classes import Color, Dimension
 from functions import get_direction, pass_through_border
 
@@ -33,8 +34,12 @@ while not game_over:
     current_pos_Y += direction_Y
 
     display.fill(Color.BLACK.value)
+    pygame.draw.rect(display, Color.RED.value, [food.x, food.y, pixel, pixel])
     pygame.draw.rect(display, Color.GREEN.value, [current_pos_X, current_pos_Y, pixel, pixel])
     
+    if current_pos_X == food.x and current_pos_Y == food.y:
+        food.x, food.y = food.generate()
+        
     pygame.display.update()
     clock.tick(game_speed)
 
