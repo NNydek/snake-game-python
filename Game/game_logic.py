@@ -2,7 +2,7 @@ import pygame
 import game_window
 from Food import food
 from classes import Color, Dimension
-from movement import get_direction, pass_through_border
+from Snake.movement import get_direction, pass_through_border
 
 def start():
     pygame.init()
@@ -33,7 +33,6 @@ def start():
         current_pos_Y += direction_Y
         
         current_pos_X, current_pos_Y = pass_through_border(current_pos_X, current_pos_Y, pixel)
-
 
         display.fill(Color.BLACK.value)
         pygame.draw.rect(display, Color.RED.value, [food.x, food.y, pixel, pixel])
