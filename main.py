@@ -1,6 +1,6 @@
 import sys
 import getopt
-from game_logic import start
+from Game.game_logic import start
 
 class Usage(Exception):
     def __init__(self, msg):
