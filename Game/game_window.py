@@ -1,4 +1,4 @@
-from classes import Dimension
+from Game.classes import Dimension
 import pygame
 
 width = Dimension.WIDTH.value

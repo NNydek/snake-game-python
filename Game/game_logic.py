@@ -1,7 +1,7 @@
 import pygame
-import game_window
+from . import game_window
 from Food import food
-from classes import Color, Dimension
+from Game.classes import Color, Dimension
 from Snake.movement import get_direction, pass_through_border
 
 def start():
