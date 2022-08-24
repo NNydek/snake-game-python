@@ -1,6 +1,6 @@
 import pygame
 import game_window
-import food
+from Food import food
 from classes import Color, Dimension
 from movement import get_direction, pass_through_border
 

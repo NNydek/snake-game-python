@@ -1,5 +1,5 @@
 import random
-from classes import Dimension
+from Game.classes import Dimension
 
 width = Dimension.WIDTH.value
 height = Dimension.HEIGHT.value
