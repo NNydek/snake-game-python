@@ -47,10 +47,11 @@ def main(argv=None):
                 game_over = True
             direction_X, direction_Y = get_direction(event, direction_X, direction_Y, pixel)
                 
-        current_pos_X, current_pos_Y = pass_through_border(current_pos_X, current_pos_Y, pixel)
-
         current_pos_X += direction_X
         current_pos_Y += direction_Y
+        
+        current_pos_X, current_pos_Y = pass_through_border(current_pos_X, current_pos_Y, pixel)
+
 
         display.fill(Color.BLACK.value)
         pygame.draw.rect(display, Color.RED.value, [food.x, food.y, pixel, pixel])
@@ -61,7 +62,6 @@ def main(argv=None):
 
         pygame.display.update()
         clock.tick(game_speed)
-
     pygame.quit()
     quit()
 

@@ -27,12 +27,12 @@ def get_direction(event, dir_x, dir_y, pixel):
     return dir_x, dir_y
 
 def pass_through_border(x, y, pixel):
-    if x == -pixel:
+    if x < 0:
         x = width - pixel
     elif x == width:
         x = 0
     
-    if y == -pixel:
+    if y < 0:
         y = height - pixel
     elif y == height:
         y = 0
