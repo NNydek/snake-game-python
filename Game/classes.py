@@ -9,4 +9,5 @@ class Color(Enum):
     BLACK = (0, 0, 0)
     RED = (255, 0, 0)
     GREEN = (0, 255, 0)
+    DARK_GREEN = (30, 120, 10)
     BLUE = (0, 0, 255)
