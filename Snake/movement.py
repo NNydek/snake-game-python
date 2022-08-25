@@ -1,9 +1,8 @@
-from Game.classes import Dimension
 import pygame
+from Game.classes import Dimension
 
 width = Dimension.WIDTH.value
 height = Dimension.HEIGHT.value
-pixel = Dimension.PIXEL.value
 
 def get_direction(event, dir_x, dir_y, pixel):
     if event.type == pygame.KEYDOWN:
@@ -31,10 +30,9 @@ def pass_through_border(x, y, pixel):
         x = width - pixel
     elif x == width:
         x = 0
-    
+
     if y < 0:
         y = height - pixel
     elif y == height:
         y = 0
     return x, y
-

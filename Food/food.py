@@ -10,4 +10,3 @@ def generate():
     new_y = round(random.randrange(0, height - pixel) / pixel) * pixel
     return new_x, new_y
 x, y = generate()
-

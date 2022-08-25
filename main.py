@@ -13,15 +13,15 @@ def main(argv=None):
         try:
             opts, args = getopt.getopt(argv[1:], "h", ["help"])
         except getopt.error as msg:
-             raise Usage(msg)
+            raise Usage(msg) from msg
     except Usage as err:
         print >>sys.stderr, err.msg
         print >>sys.stderr, "for help use --help"
         return 2
-    
+
     start()
 
-    quit()
+    sys.exit()
 
 if __name__ == "__main__":
     sys.exit(main())
